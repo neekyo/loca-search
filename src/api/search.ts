@@ -1,4 +1,4 @@
-import { Place } from './Place';
+import { Place } from "./Place";
 
 interface SearchResponse {
   features: {
@@ -23,7 +23,9 @@ export const search = async (term: string) => {
       id: feature.properties.place_id,
       name: feature.properties.display_name,
       longitude: feature.geometry.coordinates[0],
-      latitude: feature.geometry.coordinates[1]
-    }
-  })
+      latitude: feature.geometry.coordinates[1],
+    };
+  });
+
+  return places;
 };
